@@ -33,6 +33,10 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
+      {/* shows the dashed border */}
+      <View style={styles.borderWithoutHidden} />
+      {/* where's the dashed border??? */}
+      <View style={styles.borderWithHidden} />
       <Text
         style={[
           styles.sectionTitle,
@@ -97,6 +101,23 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
+  borderWithHidden: {
+    width: '100%',
+    height: 200,
+    backgroundColor: 'black',
+    borderWidth: 5,
+    borderColor: 'red',
+    borderStyle: 'dashed',
+    overflow: 'hidden',
+  },
+  borderWithoutHidden: {
+    width: '100%',
+    height: 200,
+    backgroundColor: 'black',
+    borderWidth: 5,
+    borderColor: 'red',
+    borderStyle: 'dashed',
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
